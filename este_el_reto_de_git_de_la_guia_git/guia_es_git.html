@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>¿Qué es Git?</title>
+</head>
+
+<body>
+
+    <h1>¿Qué es Git?</h1>
+
+    <p>
+        Git es una herramienta que nos permite llevar un registro
+        de los cambios que hacemos en los archivos de un proyecto.
+    </p>
+
+    <p>
+        Por ejemplo, si estamos creando una página web y modificamos
+        su contenido, Git nos ayuda a guardar un historial de esos cambios.
+    </p>
+
+    <img src="imagenes/git-historial.png" alt="Ilustración: Git guarda el historial de cambios con commits" width="750" height="338">
+
+    <h2>¿Para qué sirve Git?</h2>
+
+    <ul>
+        <li>Guardar un registro de los cambios realizados.</li>
+        <li>Recuperar versiones anteriores de un proyecto.</li>
+        <li>Organizar el trabajo de programación.</li>
+        <li>Facilitar el trabajo en equipo.</li>
+    </ul>
+
+    <h2>Comandos básicos de Git</h2>
+
+    <h3>1. git init</h3>
+    <p>Sirve para iniciar un repositorio de Git en una carpeta.</p>
+    <p>Ejemplo:</p>
+    <p>git init</p>
+
+    <img src="imagenes/git-init.png" alt="Ilustración: terminal con el comando git init y su resultado" width="750" height="322">
+
+    <h3>2. git status</h3>
+    <p>Sirve para revisar el estado de los archivos del proyecto.</p>
+    <p>Ejemplo:</p>
+    <p>git status</p>
+
+    <img src="imagenes/git-status.png" alt="Ilustración: terminal con el comando git status y su resultado" width="750" height="316">
+
+    <h3>3. git add .</h3>
+    <p>Sirve para preparar los archivos nuevos y modificados
+        para el próximo registro de cambios.</p>
+    <p>Ejemplo:</p>
+    <p>git add .</p>
+
+    <img src="imagenes/git-add.png" alt="Ilustración: terminal con el comando git add . y su resultado" width="750" height="357">
+
+    <h3>4. git commit</h3>
+    <p>Sirve para guardar un registro de los cambios preparados.</p>
+    <p>Ejemplo:</p>
+    <p>git commit -m "Primer trabajo"</p>
+
+    <img src="imagenes/git-commit.png" alt="Ilustración: terminal con el comando git commit y su resultado" width="750" height="339">
+
+    <h2>¿Cómo funciona Git?</h2>
+
+    <p>
+        Primero hacemos cambios en nuestros archivos. Después usamos
+        git add para preparar esos cambios y git commit para registrarlos.
+        Así podemos mantener un historial de nuestro trabajo.
+    </p>
+
+    <p>
+        Git funciona en nuestro computador, pero también podemos
+        conectarlo con GitHub para compartir nuestros proyectos.
+    </p>
+
+    <h2>Ejemplo práctico</h2>
+
+    <p>
+        Imagina que creaste una página llamada index.html.
+        Si quieres comenzar a registrar sus cambios, puedes escribir
+        estos comandos en la terminal:
+    </p>
+
+    <p>git init</p>
+    <p>git add index.html</p>
+    <p>git commit -m "Creando mi primera página"</p>
+
+    <p>
+        Con estos comandos inicias Git, preparas el archivo y registras
+        los cambios realizados.
+    </p>
+
+    <h2>Cómo instalar y configurar Git desde cero</h2>
+
+    <p>
+        Antes de usar los comandos, Git debe estar instalado en nuestro
+        computador. Estos pasos son para Windows, que es el sistema que
+        se muestra en las imágenes. Si usamos macOS o Linux, la página
+        oficial de Git nos indica cómo instalarlo en esos sistemas.
+    </p>
+
+    <h3>Paso 1: Descargar Git</h3>
+
+    <p>
+        Abrimos el navegador y entramos a la página oficial:
+        <a href="https://git-scm.com/">https://git-scm.com/</a>.
+        Buscamos el botón rojo que dice <strong>Download for Windows</strong>
+        y hacemos clic en él. Si usamos macOS o Linux, hacemos clic en esos
+        nombres, que aparecen debajo del botón. Se descargará un archivo
+        con la extensión .exe, que normalmente queda en la carpeta Descargas.
+    </p>
+
+    <img src="imagenes/01_descargar_git.png" alt="Paso 1: Página oficial git-scm.com con el botón rojo Download for Windows" width="450" height="544">
+
+    <h3>Paso 2: Ejecutar el instalador</h3>
+
+    <p>
+        Abrimos la carpeta Descargas y hacemos doble clic en el archivo .exe.
+        Si Windows pregunta si permitimos que la aplicación haga cambios,
+        elegimos <strong>Sí</strong>. Se abre una ventana llamada
+        <strong>Git Setup</strong>. La primera pantalla muestra la licencia
+        del programa: solo es información, no tenemos que cambiar nada.
+        Hacemos clic en el botón <strong>Next &gt;</strong> (Siguiente).
+    </p>
+
+    <p>
+        En las pantallas que siguen podemos dejar las opciones como vienen
+        por defecto y seguir presionando <strong>Next &gt;</strong>. Hay una
+        opción importante: <strong>Git from the command line and also from
+        3rd-party software</strong>. Esa opción debe quedar seleccionada
+        (normalmente ya viene así), porque permite escribir comandos de Git
+        en la terminal.
+    </p>
+
+    <img src="imagenes/02_ejecutar_instalador.png" alt="Paso 2: Asistente de instalación de Git con el botón Next" width="450" height="526">
+
+    <h3>Paso 3: Completar la instalación</h3>
+
+    <p>
+        Cuando el instalador termina, aparece la pantalla
+        <strong>Completing the Git Setup Wizard</strong>, que significa que
+        Git ya quedó instalado. Dejamos marcada la casilla
+        <strong>Launch Git Bash</strong> si queremos abrir la terminal de Git
+        de inmediato y hacemos clic en <strong>Finish</strong>.
+    </p>
+
+    <img src="imagenes/03_completar_instalacion.png" alt="Paso 3: Última pantalla del instalador de Git con el botón Finish" width="450" height="574">
+
+    <p>
+        Para comprobar que todo salió bien, escribimos este comando en
+        Git Bash y presionamos Enter:
+    </p>
+
+    <p><code>git --version</code></p>
+
+    <p>
+        Si aparece un texto como "git version 2.50.1", Git está instalado.
+        El número puede ser distinto según la versión que hayamos descargado.
+    </p>
+
+    <h3>Paso 4: Configurar nuestra identidad</h3>
+
+    <p>
+        Git guarda en cada commit el nombre y el correo de quien lo hizo.
+        Por eso, la primera vez debemos decirle quiénes somos. Abrimos
+        <strong>Git Bash</strong> (lo buscamos en el menú Inicio de Windows)
+        y escribimos estos dos comandos, uno por uno, presionando Enter
+        después de cada uno. Cambiamos TuNombre y tucorreo@ejemplo.com por
+        nuestros datos reales, pero dejamos las comillas:
+    </p>
+
+    <p><code>git config --global user.name "TuNombre"</code></p>
+
+    <p><code>git config --global user.email "tucorreo@ejemplo.com"</code></p>
+
+    <p>
+        Es recomendable usar el mismo correo con el que crearemos la cuenta
+        de GitHub. La palabra --global significa que estos datos se guardan
+        para todos los proyectos de este computador, así que solo hay que
+        hacerlo una vez.
+    </p>
+
+    <img src="imagenes/04_configurar_identidad.png" alt="Paso 4: Git Bash con los comandos git config para el nombre y el correo" width="450" height="561">
+
+    <p>
+        Para comprobar que quedó guardado, escribimos:
+    </p>
+
+    <p><code>git config --list</code></p>
+
+    <p>
+        En la lista que aparece deben verse las dos líneas user.name y
+        user.email con los datos que escribimos. Si están ahí, Git ya sabe
+        quiénes somos.
+    </p>
+
+    <p><a href="pagina_principal_del_reto.html">Volver a la página principal</a></p>
+
+</body>
+
+</html>

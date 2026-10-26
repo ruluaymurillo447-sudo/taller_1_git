@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo práctico de Git y GitHub</title>
+</head>
+
+<body>
+
+    <h1>Ejemplo práctico de Git y GitHub</h1>
+
+    <p>
+        En este ejemplo vamos a imaginar que tenemos una carpeta
+        llamada taller1, donde guardamos nuestro archivo index.html.
+        Queremos utilizar Git para registrar los cambios y GitHub
+        para guardar nuestro proyecto en internet.
+    </p>
+
+    <h2>1. Crear una carpeta</h2>
+
+    <p>
+        Primero creamos una carpeta llamada taller1 y dentro
+        guardamos nuestro archivo index.html.
+    </p>
+
+    <img src="imagenes/ejemplo-carpeta.png" alt="Ilustración: carpeta taller1 con el archivo index.html" width="750" height="322">
+
+    <h2>2. Iniciar Git</h2>
+
+    <p>
+        Abrimos la terminal en la carpeta del proyecto y escribimos
+        el siguiente comando:
+    </p>
+
+    <p><code>git init</code></p>
+
+    <h2>3. Preparar los archivos</h2>
+
+    <p>
+        Utilizamos el siguiente comando para preparar los archivos
+        que queremos registrar.
+    </p>
+
+    <p><code>git add .</code></p>
+
+    <h2>4. Guardar los cambios</h2>
+
+    <p>
+        Ahora registramos los cambios y escribimos un mensaje
+        para identificar nuestro trabajo.
+    </p>
+
+    <p><code>git commit -m "Mi primera página web"</code></p>
+
+    <h2>5. Conectar con GitHub</h2>
+
+    <p>
+        Creamos un repositorio en GitHub y conectamos nuestra carpeta
+        con él. Reemplazamos URL_DEL_REPOSITORIO por la dirección
+        verdadera del repositorio.
+    </p>
+
+    <p><code>git branch -M main</code></p>
+
+    <p><code>git remote add origin URL_DEL_REPOSITORIO</code></p>
+
+    <h2>6. Subir el proyecto</h2>
+
+    <p>
+        Por último, utilizamos este comando para enviar nuestro
+        proyecto al repositorio de GitHub.
+    </p>
+
+    <p><code>git push -u origin main</code></p>
+
+    <img src="imagenes/ejemplo-terminal.png" alt="Ilustración: terminal con todos los comandos del ejemplo en orden" width="750" height="489">
+
+    <h2>Resultado</h2>
+
+    <p>
+        Si todo está configurado correctamente, podremos entrar
+        a GitHub y encontrar nuestro archivo index.html guardado
+        en el repositorio.
+    </p>
+
+    <img src="imagenes/ejemplo-resultado.png" alt="Ilustración: repositorio taller1 en GitHub con index.html" width="750" height="412">
+
+    <p>
+        Este ejemplo nos ayuda a comprender cómo utilizar Git
+        y GitHub para mantener nuestros trabajos organizados.
+    </p>
+
+    <h2>Paso 9: Crear nuestro primer repositorio con SSH</h2>
+
+    <p>
+        Este es un ejemplo rápido con todo lo anterior ya configurado. Es
+        distinto del ejemplo de taller1: aquí la carpeta se llama
+        C:/Proyectos, el archivo se llama README.md y la dirección del
+        repositorio es de tipo SSH.
+    </p>
+
+    <p>
+        Primero creamos en GitHub un repositorio nuevo llamado mi-proyecto
+        (botón + de arriba a la derecha y luego New repository). Después
+        abrimos Git Bash dentro de la carpeta del proyecto y escribimos los
+        comandos de la imagen, uno por uno:
+    </p>
+
+    <img src="imagenes/09_primer_repositorio.png" alt="Paso 9: Comandos de Git y el repositorio mi-proyecto en GitHub con el archivo README.md" width="750" height="270">
+
+    <ul>
+        <li>
+            git init: inicia Git en la carpeta. El mensaje "Initialized empty
+            Git repository" confirma que se creó el repositorio.
+        </li>
+
+        <li>
+            git add . : prepara los archivos de la carpeta. No muestra nada y
+            eso es normal.
+        </li>
+
+        <li>
+            git commit -m "Primer commit": guarda los cambios con un mensaje.
+            El resumen "1 file changed" indica que se guardó 1 archivo.
+            En este ejemplo dice "0 insertions" porque el archivo está vacío.
+        </li>
+
+        <li>
+            git remote add origin git@github.com:TuUsuario/mi-proyecto.git:
+            conecta la carpeta con el repositorio de GitHub. Cambiamos
+            TuUsuario por nuestro nombre de usuario.
+        </li>
+
+        <li>
+            git push -u origin main: envía los archivos a GitHub.
+        </li>
+    </ul>
+
+    <p>
+        Para terminar, entramos a la página del repositorio en GitHub y
+        actualizamos la página. Debe aparecer el archivo README.md, con el
+        mensaje "Primer commit" y la indicación de hace cuánto se subió
+        (por ejemplo, "Hace 1 minuto"). Eso significa que nuestro proyecto
+        ya está en GitHub.
+    </p>
+
+    <p>
+        <a href="pagina_principal_del_reto.html">Volver a la página principal</a>
+    </p>
+
+</body>
+
+</html>

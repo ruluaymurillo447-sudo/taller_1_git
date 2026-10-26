@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cómo subir archivos a GitHub</title>
+</head>
+
+<body>
+
+    <h1>Cómo subir archivos a GitHub</h1>
+
+    <p>
+        GitHub nos permite guardar nuestros proyectos en internet.
+        Para subir nuestros archivos, primero debemos tener una cuenta
+        en GitHub y crear un repositorio donde guardaremos nuestro trabajo.
+    </p>
+
+    <h2>Antes de subir: conectar nuestro computador con GitHub usando SSH</h2>
+
+    <p>
+        SSH es una forma segura de que GitHub reconozca nuestro computador
+        sin tener que escribir la contraseña cada vez que subimos archivos.
+        Para hacerlo necesitamos haber instalado y configurado Git (pasos 1
+        a 4, en <a href="guia_es_git.html">¿Qué es Git?</a>) y tener una
+        cuenta (paso 5, en <a href="que_es_github.html">¿Qué es GitHub?</a>).
+        Esta conexión se hace una sola vez en cada computador.
+    </p>
+
+    <h3>Paso 6: Generar una clave SSH</h3>
+
+    <p>
+        Una clave SSH son dos archivos: una clave privada, que es secreta y
+        se queda en nuestro computador, y una clave pública, que le entregamos
+        a GitHub. Abrimos Git Bash y escribimos este comando, cambiando
+        tucorreo@ejemplo.com por el correo de nuestra cuenta de GitHub:
+    </p>
+
+    <p><code>ssh-keygen -t ed25519 -C "tucorreo@ejemplo.com"</code></p>
+
+    <p>
+        Git Bash nos hace unas preguntas. En la primera
+        (<strong>Enter file in which to save the key</strong>) presionamos
+        Enter para aceptar el lugar que propone. En las dos siguientes
+        (<strong>Enter passphrase</strong> y <strong>Enter same passphrase
+        again</strong>) podemos presionar Enter para dejar la contraseña
+        vacía, o escribir una contraseña extra si queremos más seguridad.
+    </p>
+
+    <img src="imagenes/06_generar_clave_ssh.png" alt="Paso 6: Git Bash con el comando ssh-keygen y sus preguntas" width="450" height="505">
+
+    <p>
+        Cuando termina, los mensajes <strong>Your identification has been
+        saved</strong> y <strong>Your public key has been saved</strong>
+        indican que se crearon los dos archivos: id_ed25519 (la clave
+        privada, que nunca debemos compartir) e id_ed25519.pub (la clave
+        pública, que sí le damos a GitHub). Si el sistema no acepta el tipo
+        ed25519, usamos este comando alternativo:
+    </p>
+
+    <p><code>ssh-keygen -t rsa -b 4096 -C "tucorreo@ejemplo.com"</code></p>
+
+    <p>
+        Ahora mostramos la clave pública para copiarla:
+    </p>
+
+    <p><code>cat ~/.ssh/id_ed25519.pub</code></p>
+
+    <p>
+        Aparece una línea larga que empieza con ssh-ed25519 y termina con
+        nuestro correo. La seleccionamos completa con el mouse y la copiamos
+        (clic derecho y luego Copy).
+    </p>
+
+    <h3>Paso 7: Añadir la clave en GitHub</h3>
+
+    <p>
+        Entramos a GitHub, hacemos clic en nuestra foto de perfil (arriba a
+        la derecha) y elegimos <strong>Settings</strong>. En el menú de la
+        izquierda buscamos <strong>SSH and GPG keys</strong> y hacemos clic en
+        el botón verde <strong>New SSH key</strong>.
+    </p>
+
+    <p>
+        En el campo <strong>Title</strong> escribimos un nombre para
+        reconocer el computador, por ejemplo "Mi PC". En el campo
+        <strong>Key</strong> pegamos la clave pública que copiamos. Por
+        último hacemos clic en el botón verde <strong>Add SSH key</strong>.
+        GitHub puede pedirnos la contraseña de la cuenta para confirmar.
+    </p>
+
+    <img src="imagenes/07_anadir_clave_github.png" alt="Paso 7: Pantalla de GitHub Settings, SSH and GPG keys, para pegar la clave pública" width="450" height="557">
+
+    <h3>Paso 8: Verificar la conexión</h3>
+
+    <p>
+        Volvemos a Git Bash y escribimos:
+    </p>
+
+    <p><code>ssh -T git@github.com</code></p>
+
+    <p>
+        La primera vez puede aparecer la pregunta
+        <strong>Are you sure you want to continue connecting (yes/no)?</strong>.
+        Escribimos yes y presionamos Enter.
+    </p>
+
+    <img src="imagenes/08_verificar_conexion.png" alt="Paso 8: Git Bash con el comando ssh -T git@github.com y el mensaje de éxito" width="450" height="544">
+
+    <p>
+        Si aparece el mensaje <strong>Hi TuUsuario! You've successfully
+        authenticated, but GitHub does not provide shell access</strong>,
+        todo funcionó: GitHub ya nos reconoce. La parte que dice que GitHub
+        no da acceso a la terminal es normal y no es un error. Si en cambio
+        aparece <strong>Permission denied (publickey)</strong>, revisamos que
+        hayamos copiado la clave pública completa y que hayamos hecho clic en
+        Add SSH key.
+    </p>
+
+    <p>
+        Cuando conectamos nuestro proyecto con GitHub (paso 6 de los pasos
+        para subir archivos), en la página del repositorio elegimos la
+        pestaña <strong>SSH</strong> y copiamos esa dirección. Es parecida a
+        git@github.com:usuario/taller1.git y es la que escribimos en lugar
+        de URL_DEL_REPOSITORIO.
+    </p>
+
+    <h2>Pasos para subir archivos</h2>
+
+    <img src="imagenes/subir_archivos.png" alt="Ilustración: resumen de los pasos para subir archivos a GitHub" width="750" height="480">
+
+    <h3>1. Crear un repositorio</h3>
+
+    <p>
+        Ingresamos a GitHub y creamos un repositorio nuevo.
+        Allí se guardarán los archivos de nuestro proyecto.
+    </p>
+
+    <img src="imagenes/paso1-crear-repositorio.png" alt="Ilustración: pantalla de GitHub para crear un repositorio nuevo" width="750" height="480">
+
+    <h3>2. Abrir la terminal</h3>
+
+    <p>
+        Abrimos la terminal en la carpeta donde tenemos nuestros
+        archivos HTML.
+    </p>
+
+    <img src="imagenes/paso2-abrir-terminal.png" alt="Ilustración: cómo abrir la terminal dentro de la carpeta del proyecto" width="750" height="450">
+
+    <h3>3. Iniciar Git</h3>
+
+    <p>
+        Escribimos el siguiente comando para iniciar Git en la carpeta.
+    </p>
+
+    <p><code>git init</code></p>
+
+    <img src="imagenes/git-init.png" alt="Ilustración: terminal con el comando git init y su resultado" width="750" height="322">
+
+    <h3>4. Preparar los archivos</h3>
+
+    <p>
+        Utilizamos este comando para preparar los archivos que queremos subir.
+    </p>
+
+    <p><code>git add .</code></p>
+
+    <img src="imagenes/git-add.png" alt="Ilustración: terminal con el comando git add . y su resultado" width="750" height="357">
+
+    <h3>5. Guardar los cambios</h3>
+
+    <p>
+        Registramos los cambios con un mensaje que nos permita
+        identificar nuestro trabajo.
+    </p>
+
+    <p><code>git commit -m "Primer trabajo"</code></p>
+
+    <img src="imagenes/git-commit.png" alt="Ilustración: terminal con el comando git commit y su resultado" width="750" height="339">
+
+    <h3>6. Conectar con GitHub</h3>
+
+    <p>
+        Conectamos nuestro proyecto local con el repositorio que creamos
+        en GitHub. Debemos reemplazar la dirección de ejemplo por la
+        URL verdadera de nuestro repositorio.
+    </p>
+
+    <p><code>git remote add origin URL_DEL_REPOSITORIO</code></p>
+
+    <img src="imagenes/paso6-copiar-url.png" alt="Ilustración: pantalla de GitHub donde se copia la dirección del repositorio" width="750" height="398">
+
+    <img src="imagenes/git-remote-add.png" alt="Ilustración: terminal con el comando git remote add origin" width="750" height="280">
+
+    <h3>7. Subir los archivos</h3>
+
+    <p>
+        Finalmente, enviamos los archivos a GitHub con el siguiente comando.
+    </p>
+
+    <p><code>git branch -M main</code></p>
+
+    <p><code>git push -u origin main</code></p>
+
+    <img src="imagenes/git-push.png" alt="Ilustración: terminal con el comando git push y su resultado" width="750" height="360">
+
+    <h2>Resultado final</h2>
+
+    <p>
+        Si los comandos se ejecutan correctamente, podremos entrar
+        a nuestro repositorio de GitHub y ver los archivos que hemos subido.
+    </p>
+
+    <img src="imagenes/paso7-verificar.png" alt="Ilustración: repositorio de GitHub con el archivo ya subido" width="750" height="412">
+
+    <p>
+        <a href="pagina_principal_del_reto.html">Volver a la página principal</a>
+    </p>
+
+</body>
+
+</html>
